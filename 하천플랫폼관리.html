@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>제주도 하천플랫폼</title>
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/spectrum.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/default-new.css">
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/spectrum.js"></script>
+    <script src="js/admin.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="top_logo"><a href="#"><img src="images/logo.png" alt="제주도 하천플랫폼"></a></h1>
+            <ul class="top_ul map_top_ul">
+                <li><a href="#" class="not_pointer">관리자님 방문을 환영합니다.</a></li>
+                <li>
+                    <a href="#" class="button btn_type1">회원정보수정</a>
+                    <a href="#" class="button btn_type2">로그아웃</a>
+                    <a href="#" target="_blank" class="button btn_type1">관리자바로가기</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="tracking">
+        <div class="left">
+            <ul class="left_ul">
+                <li><a href="#panel01" class="left_panel01">주소검색</a></li>
+                <li><a href="#panel02" class="left_panel02">레이어</a></li>
+                <li><a href="#panel05" class="left_panel05">대장보기</a></li>
+                <li><a href="#panel03" class="left_panel03">통계</a></li>
+                <li><a href="#panel04" class="left_panel04">보고서검색</a></li>
+                <li><a href="#panel06" class="left_panel06">게시판</a></li>
+            </ul>
+        </div>
+        <div class="panel" id="panel01">
+            <div class="panel_wrap">
+                <div class="panel_tab">
+                    <ul>
+                        <li><a href="#schTab01" class="on">통합검색</a></li>
+                    </ul>
+                </div>
+                <div class="panel_cont">
+                    <form id="searchForm" name="searchForm" method="">
+                        <div class="schInputArea">
+                            <input type="text" name="" class="schInput">
+                            <input type="button" class="schInputBtn" value="조회">
+                        </div>
+                    </form>
+                    <div class="sch_result">
+                        <h4>검색결과</h4>
+                        <ul id="searchList">
+                            <li>
+                                <a href="#" class="result_title">제주특별자치도 서귀포시 성산읍 시흥리</a>
+                                <a href="#" class="result_pin on">선택</a>
+                            </li>
+                            <li>
+                                <a href="#" class="result_title">제주특별자치도 서귀포시 성산읍 시흥리</a>
+                                <a href="#" class="result_pin">선택</a>
+                            </li>
+                            <li>
+                                <a href="#" class="result_title">제주특별자치도 서귀포시 성산읍 시흥리</a>
+                                <a href="#" class="result_pin">선택</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="#" class="btn_close_panel">닫기</a>
+                <a href="#" class="btn_move_panel" id="panel01_btn_move">이동</a>
+            </div>
+        </div>
+        <div class="panel" id="panel02">
+            <div class="panel_wrap">
+                <div class="panel_tab">
+                    <ul>
+                        <li><a href="#schTab01" class="on">레이어 목록</a></li>
+                    </ul>
+                </div>
+                <div class="panel_cont">
+                    <!--<div class="btns right">
+                        <button class="button btn_small btn_layer_setting">관리</button>
+                    </div>-->
+                    <ul class="check_tree">
+                        <li>
+                           <input type="checkbox" id="node1"><div class='view_icon on'></div><label for="node1">주제도</label>
+                           <ul>
+                               <li>
+                                   <input type="checkbox" id="node1_1"><div class='view_icon'></div><label for="node1_1">올레길</label>
+                                   <ul>
+                                       <li>
+                                           <input type="checkbox" id="node1_1_1"><div class='mark_icon line bo_red'></div><label for="node1_1_1">1코스</label>
+                                           <button type="button" class="node_btn" onclick="openNodeSetting('line');">심볼설정</button>
+                                       </li>
+                                       <li>
+                                           <input type="checkbox" id="node1_1_2"><div class='mark_icon circle bo_black ba_orange'></div><label for="node1_1_2">2코스</label>
+                                           <button type="button" class="node_btn" onclick="openNodeSetting('polygon');">심볼설정</button>
+                                       </li>
+                                       <li>
+                                           <input type="checkbox" id="node1_1_3"><div class='mark_icon quadrangle bo_black ba_yellow'></div><label for="node1_1_3">3코스</label>
+                                           <button type="button" class="node_btn" onclick="openNodeSetting('point');">심볼설정</button>
+                                       </li>
+                                   </ul>
+                               </li>
+                               <li>
+                                   <input type="checkbox" id="node1_2"><div class='view_icon'></div><label for="node1_2">둘레길</label>
+                               </li>
+                               <li>
+                                   <input type="checkbox" id="node1_3"><div class='view_icon'></div><label for="node1_3">등산로</label>
+                               </li>
+                               <li>
+                                   <input type="checkbox" id="node1_4"><div class='view_icon'></div><label for="node1_4">임도</label>
+                               </li>
+                               <li>
+                                   <input type="checkbox" id="node1_5"><div class='view_icon'></div><label for="node1_5">오름</label>
+                               </li>
+                           </ul>
+                        </li>
+                    </ul>
+                </div>
+                <a href="#" class="btn_close_panel">닫기</a>
+                <a href="#" class="btn_move_panel" id="panel02_btn_move">이동</a>
+            </div>
+        </div>
+        <!-- 20211102수정 -->
+        <div class="layer_panel layer_panel_line" id="panel02_line">
+            <div class="panel_wrap">
+                <div class="panel_tab">
+                    <ul>
+                        <li><a href="#layerTab01" class="on">라인</a></li>
+                    </ul>
+                </div>
+                <div class="panel_cont">
+                    <div class="layer_color_area">
+                        <label for="line_border_color">테두리색</label>
+                        <input type="text" id="line_border_color" name="line_border_color" class="layer_colorpicker">
+                    </div>
+                    <div class="layer_color_area">
+                        <label for="line_border_opacity">테두리 투명도</label>
+                        <div class="layer_opacity_area">
+                            <input type="range" class="layer_opacity" min="0.0" max="1.0" step="0.1" value="1.0" onchange="opacityChange(this);">
+                            <input type="text" id="line_border_opacity" name="line_border_opacity" class="layer_opacity" readonly>
+                        </div>
+                    </div>
+                    <div class="btns">
+                        <button type="button" class="button btn_type2">확인</button>
+                    </div>
+                </div>
+                <a href="#" class="btn_close_layer_panel">닫기</a>
+                <a href="#" class="btn_move_layer_panel" id="panel02_line_btn_move">이동</a>
+            </div>
+        </div>
+        <div class="layer_panel layer_panel_polygon" id="panel02_polygon">
+            <div class="panel_wrap">
+                <div class="panel_tab">
+                    <ul>
+                        <li><a href="#layerTab01" class="on">폴리곤</a></li>
+                    </ul>
+                </div>
+                <div class="panel_cont">
+                    <div class="layer_color_area">
+                        <label for="polygon_border_color">테두리색</label>
+                        <input type="text" id="polygon_border_color" name="polygon_border_color" class="layer_colorpicker">
+                    </div>
+                    <div class="layer_color_area">
+                        <label for="polygon_border_opacity">테두리 투명도</label>
+                        <div class="layer_opacity_area">
+                            <input type="range" class="layer_opacity" min="0.0" max="1.0" step="0.1" value="1.0" onchange="opacityChange(this);">
+                            <input type="text" id="polygon_border_opacity" name="polygon_border_opacity" class="layer_opacity" readonly>
+                        </div>
+                    </div>
+                    <div class="layer_color_area">
+                        <label for="polygon_background_color">배경색</label>
+                        <input type="text" id="polygon_background_color" name="polygon_background_color" class="layer_colorpicker">
+                    </div>
+                    <div class="layer_color_area">
+                        <label for="polygon_background_opacity">배경 투명도</label>
+                        <div class="layer_opacity_area">
+                            <input type="range" class="layer_opacity" min="0.0" max="1.0" step="0.1" value="1.0" onchange="opacityChange(this);">
+                            <input type="text" id="polygon_background_opacity" name="polygon_background_opacity" class="layer_opacity" readonly>
+                        </div>
+                    </div>
+                    <div class="btns">
+                        <button type="button" class="button btn_type2">확인</button>
+                    </div>
+                </div>
+                <a href="#" class="btn_close_layer_panel">닫기</a>
+                <a href="#" class="btn_move_layer_panel" id="panel02_polygon_btn_move">이동</a>
+            </div>
+        </div>
+        <div class="layer_panel layer_panel_point" id="panel02_point">
+            <div class="panel_wrap">
+                <div class="panel_tab">
+                    <ul>
+                        <li><a href="#layerTab01" class="on">이미지</a></li>
+                        <li><a href="#layerTab02">심볼</a></li>
+                    </ul>
+                </div>
+                <div class="panel_cont">
+                    <div id="layerTab01" class="panel_div on">
+                        <ul class="layer_img_area cf">
+                            <li>
+                                <input type="radio" id="point_img_1" name="point_img">
+                                <label for="point_img_1"><img src="images/mapicon/academy.png" alt="point_img_1"></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="point_img_2" name="point_img">
+                                <label for="point_img_2"><img src="images/mapicon/ad_tower.png" alt="point_img_2"></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="point_img_3" name="point_img">
+                                <label for="point_img_3"><img src="images/mapicon/auto_voice.png" alt="point_img_3"></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="point_img_4" name="point_img">
+                                <label for="point_img_4"><img src="images/mapicon/b_mark1.png" alt="point_img_4"></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="point_img_5" name="point_img">
+                                <label for="point_img_5"><img src="images/mapicon/b_mark3.png" alt="point_img_5"></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="point_img_6" name="point_img">
+                                <label for="point_img_6"><img src="images/mapicon/basilica.png" alt="point_img_6"></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="point_img_7" name="point_img">
+                                <label for="point_img_7"><img src="images/mapicon/BC201.png" alt="point_img_7"></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="point_img_8" name="point_img">
+                                <label for="point_img_8"><img src="images/mapicon/BC202.png" alt="point_img_8"></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="point_img_9" name="point_img">
+                                <label for="point_img_9"><img src="images/mapicon/BC205.png" alt="point_img_9"></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="point_img_10" name="point_img">
+                                <label for="point_img_10"><img src="images/mapicon/beauty.png" alt="point_img_10"></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="point_img_11" name="point_img">
+                                <label for="point_img_11"><img src="images/mapicon/bird.png" alt="point_img_11"></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="point_img_12" name="point_img">
+                                <label for="point_img_12"><img src="images/mapicon/bit.png" alt="point_img_12"></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="point_img_13" name="point_img">
+                                <label for="point_img_13"><img src="images/mapicon/blt_bdg.png" alt="point_img_13"></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="point_img_14" name="point_img">
+                                <label for="point_img_14"><img src="images/mapicon/blt_bhj.png" alt="point_img_14"></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="point_img_15" name="point_img">
+                                <label for="point_img_15"><img src="images/mapicon/blt_bjss.png" alt="point_img_15"></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="point_img_16" name="point_img">
+                                <label for="point_img_16"><img src="images/mapicon/blt_bmg.png" alt="point_img_16"></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="point_img_17" name="point_img">
+                                <label for="point_img_17"><img src="images/mapicon/blt_df.png" alt="point_img_17"></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="point_img_18" name="point_img">
+                                <label for="point_img_18"><img src="images/mapicon/blt_dsms.png" alt="point_img_18"></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="point_img_19" name="point_img">
+                                <label for="point_img_19"><img src="images/mapicon/blt_er.png" alt="point_img_19"></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="point_img_20" name="point_img">
+                                <label for="point_img_20"><img src="images/mapicon/blt_face.png" alt="point_img_20"></label>
+                            </li>
+                        </ul>
+                        <div class="btns">
+                            <button type="button" class="button btn_type2">확인</button>
+                        </div>
+                    </div>
+                    <div id="layerTab02" class="panel_div">
+                        <div class="layer_color_area">
+                            <label for="point_border_color">테두리색</label>
+                            <input type="text" id="point_border_color" name="point_border_color" class="layer_colorpicker">
+                        </div>
+                        <div class="layer_color_area">
+                            <label for="point_border_opacity">배경 투명도</label>
+                            <div class="layer_opacity_area">
+                                <input type="range" class="layer_opacity" min="0.0" max="1.0" step="0.1" value="1.0" onchange="opacityChange(this);">
+                                <input type="text" id="point_border_opacity" name="point_border_opacity" class="layer_opacity" readonly>
+                            </div>
+                        </div>
+                        <div class="layer_color_area">
+                            <label for="point_background_color">배경색</label>
+                            <input type="text" id="point_background_color" name="point_background_color" class="layer_colorpicker">
+                        </div>
+                        <div class="layer_color_area">
+                            <label for="point_background_opacity">배경 투명도</label>
+                            <div class="layer_opacity_area">
+                                <input type="range" class="layer_opacity" min="0.0" max="1.0" step="0.1" value="1.0" onchange="opacityChange(this);">
+                                <input type="text" id="point_background_opacity" name="point_background_opacity" class="layer_opacity" readonly>
+                            </div>
+                        </div>
+                        <div class="btns">
+                            <button type="button" class="button btn_type2">확인</button>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn_close_layer_panel">닫기</a>
+                <a href="#" class="btn_move_layer_panel" id="panel02_point_btn_move">이동</a>
+            </div>
+        </div>
+        <!-- 20211102수정 -->
+        <div class="panel" id="panel03">
+            <div class="panel_wrap">
+                <div class="panel_tab">
+                    <ul>
+                        <li><a href="#schTab01" class="on">통계</a></li>
+                    </ul>
+                </div>
+                <div class="panel_cont">
+                    <form id="statsForm" name="statsForm" method="">
+                        <div class="search_box">
+                            <dl>
+                                <dt>종류</dt>
+                                <dd>
+                                    <select name="" class="full">
+                                        <option value="">시설물현황 통계</option>
+                                        <option value="">인허가 통계</option>
+                                        <option value="">공사 통계</option>
+                                        <option value="">보수이력 통계</option>
+                                    </select>
+                                </dd>
+                                <dt>하천명</dt>
+                                <dd><input type="text" name="" class="full"></dd>
+                                <dt>기간</dt>
+                                <dd class="date_area"><input type="text" name="" class="date"> <span>~</span> <input type="text" name="" class="date"></dd>
+                            </dl>
+                            <div class="btns">
+                                <button type="button" class="button btn_type2 btn_search">검색</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="divide">
+                        <div class="half">
+                            <div class="tbl_wrap">
+                                <table class="list" id="statsList">
+                                    <colgroup>
+                                        <col style="width:*">
+                                        <col style="width:*">
+                                        <col style="width:*">
+                                    </colgroup>
+                                    <tr>
+                                        <th>하천번호</th>
+                                        <th>하천명</th>
+                                        <th>개수</th>
+                                    </tr>
+                                    <tr>
+                                        <td>6020360</td>
+                                        <td>도근천</td>
+                                        <td>10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6020360</td>
+                                        <td>도근천</td>
+                                        <td>9</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6020360</td>
+                                        <td>도근천</td>
+                                        <td>8</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6020360</td>
+                                        <td>도근천</td>
+                                        <td>7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6020360</td>
+                                        <td>도근천</td>
+                                        <td>6</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6020360</td>
+                                        <td>도근천</td>
+                                        <td>5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6020360</td>
+                                        <td>도근천</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6020360</td>
+                                        <td>도근천</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6020360</td>
+                                        <td>도근천</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6020360</td>
+                                        <td>도근천</td>
+                                        <td>1</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="half">
+                            <div class="graph_area">
+                                <img src="images/graph_img.png" alt="graph_img" class="graph_img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn_close_panel">닫기</a>
+                <a href="#" class="btn_move_panel" id="panel03_btn_move">이동</a>
+            </div>
+        </div>
+        <div class="panel" id="panel04">
+            <div class="panel_wrap">
+                <div class="panel_tab">
+                    <ul>
+                        <li><a href="#schTab01" class="on">기본 계획보고서</a></li>
+                        <li><a href="#schTab02">하천분석 결과보고서</a></li>
+                    </ul>
+                </div>
+                <div class="panel_cont">
+                    <div id="schTab01" class="panel_div on">
+                        <form id="reportForm" name="reportForm" method="">
+                            <div class="search_box">
+                                <dl>
+                                    <dt>하천명</dt>
+                                    <dd class="date_area"><input type="text" name="" class="full"></dd>
+                                </dl>
+                                <div class="btns">
+                                    <button type="button" class="button btn_type2 btn_search">검색</button>
+                                </div>
+                            </div>
+                        </form>
+                        <h4>기본 계획보고서</h4>
+                        <div class="divide">
+                            <div class="tbl_wrap">
+                                <table class="list" id="reportList">
+                                    <colgroup>
+                                        <col style="width:*">
+                                        <col style="width:80px">
+                                        <col style="width:80px">
+                                        <col style="width:80px">
+                                        <col style="width:80px">
+                                        <col style="width:80px">
+                                    </colgroup>
+                                    <tr>
+                                        <th>하천정비기본계획</th>
+                                        <th>연도</th>
+                                        <th>보고서</th>
+                                        <th>부록</th>
+                                        <th>하천대장</th>
+                                        <th>기타</th>
+                                    </tr>
+                                    <tr>
+                                        <td>계성천(1)</td>
+                                        <td>1981</td>
+                                        <td><a href="#"><img src="images/icon_report.png" alt="icon_report" class="icon_report"></a></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>하천1</td>
+                                        <td>1999</td>
+                                        <td><a href="#"><img src="images/icon_report.png" alt="icon_report" class="icon_report"></a></td>
+                                        <td><a href="#"><img src="images/icon_report.png" alt="icon_report" class="icon_report"></a></td>
+                                        <td><a href="#"><img src="images/icon_report.png" alt="icon_report" class="icon_report"></a></td>
+                                        <td><a href="#"><img src="images/icon_report.png" alt="icon_report" class="icon_report"></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>하천1</td>
+                                        <td>2000</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><a href="#"><img src="images/icon_report.png" alt="icon_report" class="icon_report"></a></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>하천1</td>
+                                        <td>1998</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><a href="#"><img src="images/icon_report.png" alt="icon_report" class="icon_report"></a></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>하천1</td>
+                                        <td>2010</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="schTab02" class="panel_div">
+                        <form id="reportForm2" name="reportForm2" method="">
+                            <div class="search_box">
+                                <dl>
+                                    <dt>하천명</dt>
+                                    <dd class="date_area"><input type="text" name="" class="full"></dd>
+                                </dl>
+                                <div class="btns">
+                                    <button type="button" class="button btn_type2 btn_search">검색</button>
+                                </div>
+                            </div>
+                        </form>
+                        <h4>하천분석 결과보고서</h4>
+                        <div class="divide">
+                            <div class="tbl_wrap">
+                                <table class="list" id="reportList2">
+                                    <colgroup>
+                                        <col style="width:*">
+                                        <col style="width:80px">
+                                        <col style="width:80px">
+                                        <col style="width:80px">
+                                        <col style="width:80px">
+                                        <col style="width:80px">
+                                    </colgroup>
+                                    <tr>
+                                        <th>하천정비기본계획</th>
+                                        <th>연도</th>
+                                        <th>보고서</th>
+                                        <th>부록</th>
+                                        <th>하천대장</th>
+                                        <th>기타</th>
+                                    </tr>
+                                    <tr>
+                                        <td>계성천(1)</td>
+                                        <td>1981</td>
+                                        <td><a href="#"><img src="images/icon_report.png" alt="icon_report" class="icon_report"></a></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>하천1</td>
+                                        <td>1999</td>
+                                        <td><a href="#"><img src="images/icon_report.png" alt="icon_report" class="icon_report"></a></td>
+                                        <td><a href="#"><img src="images/icon_report.png" alt="icon_report" class="icon_report"></a></td>
+                                        <td><a href="#"><img src="images/icon_report.png" alt="icon_report" class="icon_report"></a></td>
+                                        <td><a href="#"><img src="images/icon_report.png" alt="icon_report" class="icon_report"></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>하천1</td>
+                                        <td>2000</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><a href="#"><img src="images/icon_report.png" alt="icon_report" class="icon_report"></a></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>하천1</td>
+                                        <td>1998</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><a href="#"><img src="images/icon_report.png" alt="icon_report" class="icon_report"></a></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>하천1</td>
+                                        <td>2010</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn_close_panel">닫기</a>
+                <a href="#" class="btn_move_panel" id="panel04_btn_move">이동</a>
+            </div>
+        </div>
+        <div class="panel" id="panel05">
+            <div class="panel_wrap">
+                <!--<div class="panel_tab">
+                    <ul>
+                        <li><a href="#schTab01" class="on">대장보기 목록</a></li>
+                    </ul>
+                </div>-->
+                <div class="panel_cont">
+                    <div class="sch_result">
+                        <h4>하천측량성과</h4>
+                        <ul class="check_ul cf">
+                            <li><label><a href="#panel05_1" class="result_title">하천현황관리대장</a></label></li>
+                            <li><label><a href="#panel05_1" class="result_title">하천자원관리대장</a></label></li>
+                            <li><label><a href="#panel05_1" class="result_title">하천제방관리대장</a></label></li>
+                            <li><label><a href="#panel05_1" class="result_title">하천시설물관리대장</a></label></li>
+                            <li><label><a href="#panel05_1" class="result_title">지적현황</a></label></li>
+                        </ul>
+                        <h4>현황대장조서</h4>
+                        <ul class="check_ul cf">
+                            <li><label><a href="#panel05_1" class="result_title">하천개황/유수상황</a></label></li>
+                            <li><label><a href="#panel05_1" class="result_title">측량기준점</a></label></li>
+                            <li><label><a href="#panel05_1" class="result_title">구역현황</a></label></li>
+                            <li><label><a href="#panel05_1" class="result_title">하천제방현황</a></label></li>
+                            <li><label><a href="#panel05_1" class="result_title">하천호안/부속물현황</a></label></li>
+                        </ul>
+                        <h4>수리대장조서</h4>
+                        <ul class="check_ul cf">
+                            <li><label><a href="#panel05_2" class="result_title">유수사용</a></label></li>
+                            <li><label><a href="#panel05_2" class="result_title">댐 및 후구둑</a></label></li>
+                        </ul>
+                        <h4>지번조서</h4>
+                        <ul class="check_ul cf">
+                            <li><label><a href="#panel05_2" class="result_title">하천구역</a></label></li>
+                            <li><label><a href="#panel05_2" class="result_title">연안구역</a></label></li>
+                            <li><label><a href="#panel05_2" class="result_title">하천예정지</a></label></li>
+                            <li><label><a href="#panel05_2" class="result_title">기존폐천</a></label></li>
+                            <li><label><a href="#panel05_2" class="result_title">신생폐천</a></label></li>
+                            <li><label><a href="#panel05_2" class="result_title">사유지</a></label></li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="#" class="btn_close_panel">닫기</a>
+                <a href="#" class="btn_move_panel" id="panel05_btn_move">이동</a>
+            </div>
+        </div>
+        <div class="sub_panel" id="panel05_1">
+            <div class="panel_wrap">
+                <div class="panel_cont">
+                    <form id="landForm" name="landForm" method="">
+                        <div class="search_box">
+                            <dl>
+                                <dt>하천명</dt>
+                                <dd><input type="text" name="" class="full"></dd>
+                            </dl>
+                            <div class="btns">
+                                <button type="button" class="button btn_type2 btn_search">검색</button>
+                                <button type="button" class="button btn_type1">엑셀다운로드</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="divide">
+                        <div class="tbl_wrap">
+                            <table class="list" id="landList">
+                                <colgroup>
+                                    <col style="width:*">
+                                    <col style="width:80px">
+                                    <col style="width:80px">
+                                    <col style="width:80px">
+                                    <col style="width:80px">
+                                    <col style="width:80px">
+                                </colgroup>
+                                <tr>
+                                    <th>하천명</th>
+                                    <th>연도</th>
+                                    <th>보고서</th>
+                                    <th>부록</th>
+                                    <th>하천대장</th>
+                                    <th>기타</th>
+                                </tr>
+                                <tr>
+                                    <td>계성천(1)</td>
+                                    <td>1981</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>하천1</td>
+                                    <td>1999</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>하천1</td>
+                                    <td>2000</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>하천1</td>
+                                    <td>1998</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>하천1</td>
+                                    <td>2010</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn_close_sub_panel">닫기</a>
+                <a href="#" class="btn_move_sub_panel" id="panel05_1_btn_move">이동</a>
+            </div>
+        </div>
+        <div class="sub_panel" id="panel05_2">
+            <div class="panel_wrap">
+                <div class="panel_cont">
+                    <form id="landForm2" name="landForm2" method="">
+                        <div class="search_box">
+                            <dl>
+                                <dt>하천명</dt>
+                                <dd><input type="text" name="" class="full"></dd>
+                            </dl>
+                            <div class="btns">
+                                <button type="button" class="button btn_type2 btn_search">검색</button>
+                                <button type="button" class="button btn_type1">엑셀다운로드</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="divide">
+                        <div class="tbl_wrap">
+                            <table class="list" id="landList2">
+                                <colgroup>
+                                    <col style="width:*">
+                                    <col style="width:80px">
+                                    <col style="width:80px">
+                                    <col style="width:80px">
+                                    <col style="width:80px">
+                                    <col style="width:80px">
+                                </colgroup>
+                                <tr>
+                                    <th>하천명</th>
+                                    <th>연도</th>
+                                    <th>보고서</th>
+                                    <th>부록</th>
+                                    <th>하천대장</th>
+                                    <th>기타</th>
+                                </tr>
+                                <tr>
+                                    <td>계성천(1)</td>
+                                    <td>1981</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn_close_sub_panel">닫기</a>
+                <a href="#" class="btn_move_sub_panel" id="panel05_2_btn_move">이동</a>
+            </div>
+        </div>
+        <div class="panel" id="panel06">
+            <div class="panel_wrap">
+                <div class="panel_tab">
+                    <ul>
+                        <li><a href="#schTab03" class="on">공지사항</a></li>
+                        <li><a href="#schTab04">FAQ</a></li>
+                        <li><a href="#schTab05">QNA</a></li>
+                    </ul>
+                </div>
+                <div class="panel_cont">
+                    <div id="schTab03" class="panel_div on">
+                        <form id="noticeForm" name="noticeForm" method="">
+                            <div class="search_box">
+                                <dl>
+                                    <dt>제목</dt>
+                                    <dd class="date_area"><input type="text" name="" class="full"></dd>
+                                    <dt>기간</dt>
+                                    <dd class="date_area"><input type="text" name="" class="date"> <span>~</span> <input type="text" name="" class="date"></dd>
+                                </dl>
+                                <div class="btns">
+                                    <button type="button" class="button btn_type2 btn_search">검색</button>
+                                </div>
+                            </div>
+                        </form>
+                        <h4>공지사항</h4>
+                        <div class="divide">
+                            <div class="tbl_wrap">
+                                <table class="list" id="noticeList">
+                                    <colgroup>
+                                        <col style="width:100px">
+                                        <col style="width:*">
+                                        <col style="width:150px">
+                                    </colgroup>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>제목</th>
+                                        <th>작성일자</th>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td class="left"><a href="#schTab03_1" class="panel_move">공지사항 제목입니다.</a></td>
+                                        <td>2021-01-01</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td class="left"><a href="#schTab03_1" class="panel_move">공지사항 제목입니다.</a></td>
+                                        <td>2021-01-01</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td class="left"><a href="#schTab03_1" class="panel_move">공지사항 제목입니다.</a></td>
+                                        <td>2021-01-01</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="pagingAjaxUtil" align="center">
+                            <ul class="pagination">
+                                <li>
+                                    <a href="#" class="ctrl fir" onclick=""><span class="blind">처음</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="ctrl prev" onclick=""><span class="blind">이전</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="num" onclick="">
+                                        <p>1</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="num active">
+                                        <strong>2<span class="blind">현재 페이지</span></strong>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="num" onclick="">
+                                        <p>3</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="num" onclick="">
+                                        <p>4</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="num" onclick="">
+                                        <p>5</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="ctrl next" onclick=""><span class="blind">다음</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="ctrl las" onclick=""><span class="blind">마지막</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="schTab03_1" class="panel_div">
+                        <div class="divide">
+                            <div class="tbl_wrap">
+                                <table class="list" id="noticeDetailList">
+                                    <colgroup>
+                                        <col style="width:100px">
+                                        <col style="width:*">
+                                        <col style="width:100px">
+                                        <col style="width:*">
+                                    </colgroup>
+                                    <tr>
+                                        <th>제목</th>
+                                        <td class="left">공지사항 제목입니다.</td>
+                                        <th>작성자</th>
+                                        <td class="left">관리자</td>
+                                    </tr>
+                                    <tr>
+                                        <th>내용</th>
+                                        <td colspan="3" class="cont left">
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>파일첨부</th>
+                                        <td colspan="3" class="left"><a href="#" target="_blank">파일명</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="btns">
+                            <a href="#schTab03" class="button btn_type2 panel_move">목록</a>
+                        </div>
+                    </div>
+                    <div id="schTab04" class="panel_div">
+                        <form id="faqForm" name="faqForm" method="">
+                            <div class="search_box">
+                                <dl>
+                                    <dt>제목</dt>
+                                    <dd class="date_area"><input type="text" name="" class="full"></dd>
+                                    <dt>기간</dt>
+                                    <dd class="date_area"><input type="text" name="" class="date"> <span>~</span> <input type="text" name="" class="date"></dd>
+                                </dl>
+                                <div class="btns">
+                                    <button type="button" class="button btn_type2 btn_search">검색</button>
+                                </div>
+                            </div>
+                        </form>
+                        <h4>FAQ</h4>
+                        <div class="divide">
+                            <div class="tbl_wrap">
+                                <table class="list" id="faqList">
+                                    <colgroup>
+                                        <col style="width:100px">
+                                        <col style="width:*">
+                                        <col style="width:150px">
+                                    </colgroup>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>제목</th>
+                                        <th>작성일자</th>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td class="left"><a href="#schTab04_1" class="panel_move">FAQ 제목입니다.</a></td>
+                                        <td>2021-01-01</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td class="left"><a href="#schTab04_1" class="panel_move">FAQ 제목입니다.</a></td>
+                                        <td>2021-01-01</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td class="left"><a href="#schTab04_1" class="panel_move">FAQ 제목입니다.</a></td>
+                                        <td>2021-01-01</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="schTab04_1" class="panel_div">
+                        <div class="divide">
+                            <div class="tbl_wrap">
+                                <table class="list" id="faqDetailList">
+                                    <colgroup>
+                                        <col style="width:100px">
+                                        <col style="width:*">
+                                        <col style="width:100px">
+                                        <col style="width:*">
+                                    </colgroup>
+                                    <tr>
+                                        <th>제목</th>
+                                        <td class="left">FAQ 제목입니다.</td>
+                                        <th>작성자</th>
+                                        <td class="left">관리자</td>
+                                    </tr>
+                                    <tr>
+                                        <th>내용</th>
+                                        <td colspan="3" class="cont left">
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="btns">
+                            <a href="#schTab04" class="button btn_type2 panel_move">목록</a>
+                        </div>
+                    </div>
+                    <div id="schTab05" class="panel_div">
+                        <form id="qnaForm" name="qnaForm" method="">
+                            <div class="search_box">
+                                <dl>
+                                    <dt>제목</dt>
+                                    <dd class="date_area"><input type="text" name="" class="full"></dd>
+                                    <dt>기간</dt>
+                                    <dd class="date_area"><input type="text" name="" class="date"> <span>~</span> <input type="text" name="" class="date"></dd>
+                                </dl>
+                                <div class="btns">
+                                    <button type="button" class="button btn_type2 btn_search">검색</button>
+                                </div>
+                            </div>
+                        </form>
+                        <h4>QNA</h4>
+                        <div class="divide">
+                            <div class="tbl_wrap">
+                                <table class="list" id="qnaList">
+                                    <colgroup>
+                                        <col style="width:100px">
+                                        <col style="width:*">
+                                        <col style="width:150px">
+                                    </colgroup>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>제목</th>
+                                        <th>작성일자</th>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td class="left"><a href="#schTab05_1" class="panel_move">QNA 제목입니다.</a></td>
+                                        <td>2021-01-01</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td class="left"><a href="#schTab05_1" class="panel_move">QNA 제목입니다.</a></td>
+                                        <td>2021-01-01</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td class="left"><a href="#schTab05_1" class="panel_move">QNA 제목입니다.</a></td>
+                                        <td>2021-01-01</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="schTab05_1" class="panel_div">
+                        <div class="divide">
+                            <div class="tbl_wrap">
+                                <table class="list" id="qnaDetailList">
+                                    <colgroup>
+                                        <col style="width:100px">
+                                        <col style="width:*">
+                                        <col style="width:100px">
+                                        <col style="width:*">
+                                    </colgroup>
+                                    <tr>
+                                        <th>제목</th>
+                                        <td class="left">QNA 제목입니다.</td>
+                                        <th>작성자</th>
+                                        <td class="left">관리자</td>
+                                    </tr>
+                                    <tr>
+                                        <th>내용</th>
+                                        <td colspan="3" class="cont left">
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                            내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세. 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>파일첨부</th>
+                                        <td colspan="3" class="left"><a href="#" target="_blank">파일명</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="btns">
+                            <a href="#schTab05" class="button btn_type2 panel_move">목록</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn_close_panel">닫기</a>
+                <a href="#" class="btn_move_panel" id="panel06_btn_move">이동</a>
+            </div>
+        </div>
+        <div class="top_left">
+            <ul class="top_icons">
+                <li><a href="#" class="ico01" title="전체화면">전체화면</a></li>
+                <li><a href="#" class="ico02" title="지도이동">지도이동</a></li>
+                <li><a href="#" class="ico03" title="지도이미지저장">지도이미지저장</a></li>
+                <li><a href="#" class="ico04" title="지도출력">지도출력</a></li>
+                <li><a href="#" class="ico05" title="초기화">초기화</a></li>
+                <li><a href="#" class="ico06" title="거리재기">거리재기</a></li>
+                <li><a href="#" class="ico07" title="면적재기">면적재기</a></li>
+                <li><a href="#" class="ico08" title="도형그리기">도형그리기</a></li>
+                <li><a href="#" class="ico09" title="이전">이전</a></li>
+                <li><a href="#" class="ico10" title="이후">이후</a></li>
+                <li><a href="#" class="ico11" title="보기">보기</a></li>
+                <li><a href="#" class="ico12" title="숨기기">숨기기</a></li>
+                <li><a href="#" class="ico13" title="3D 지도(시뮬레이션)">3D 지도(시뮬레이션)</a></li>
+                <li><a href="#" class="ico14" title="위치이동">위치이동</a></li>
+                <li><a href="#" class="ico15" title="ico15">ico15</a></li>
+                <li><a href="#" class="ico16" title="ico16">ico16</a></li>
+                <li><a href="#" class="ico17" title="ico17">ico17</a></li>
+            </ul>
+            <ul class="map_type">
+                <li><a href="#" id="baseMapList">배경지도</a></li>
+                <li><a href="#" id="aerialMap">항공지도</a></li>
+            </ul>
+        </div>
+        <div class="center_right">
+            <div class="zoom">
+                <button type="button" class="btn_zoom_in"> 확대 </button>
+                <div class="zoom_value">
+                    <div class="zoom_value_range">
+                		<input type="range" id="zvrinput" name="" min="1" max="6" value="1">
+                	</div>
+                </div>
+                <button type="button" class="btn_zoom_out"> 축소 </button>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="location">
+                <label for="">위치</label>
+                <select name="">
+                    <option value="">북구</option>
+                </select>
+                <select name="">
+                    <option value="">산격동</option>
+                </select>
+            </div>
+            <button class="btn_release">선택해제</button>
+            <div class="scale">
+                <label for="">축척</label>
+                <select name="">
+                    <option value="">1:2254</option>
+                </select>
+            </div>
+            <div class="coord">
+                <label for="">좌표</label>
+                <input type="text" name="">
+                <input type="text" name="">
+            </div>
+            <ul class="end_btns">
+                <li><a href="#"><img src="images/end_btns01.png" alt=""></a></li>
+                <li><a href="#"><img src="images/end_btns02.png" alt=""></a></li>
+            </ul>
+        </div>
+        <div class="map"></div>
+    </div>
+    
+    <div class="layer_setting" title="레이어 관리">
+        <div class="layer_wrap">
+
+        </div>
+    </div>
+    
+    <div class="alarmPop modal" title="재난 상황 알림">
+        <div class="tbl_wrap">
+            <table class="list">
+                <colgroup>
+                    <col style="width:76px">
+                    <col style="width:*">
+                </colgroup>
+                <tr>
+                    <th>하천명</th>
+                    <td><input type="text" name="" class="full" value="하천1" readonly></td>
+                </tr>
+                <tr>
+                    <th>내용</th>
+                    <td>
+                        <textarea name="" rows="10" readonly>위험 수위<br>기준 : 80cm<br>현재 : 120cm</textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="btns">
+            <button type="button" class="button btn_type2 cancelBtn">확인</button>
+        </div>
+    </div>
+    
+    
+    <script type="text/javascript">
+        //Make the DIV element draggagle:
+        $(".panel").each(function() {
+            dragElement(document.getElementById($(this).attr("id")));
+        });
+        
+        $(".sub_panel").each(function() {
+            dragElement(document.getElementById($(this).attr("id")));
+        });
+        
+        /* 20211102수정 */
+        $(".layer_panel").each(function() {
+            dragElement(document.getElementById($(this).attr("id")));
+        });
+        /* 20211102수정 */
+
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            
+            if (document.getElementById(elmnt.id + "_btn_move")) {
+                /* if present, the header is where you move the DIV from:*/
+                document.getElementById(elmnt.id + "_btn_move").onmousedown = dragMouseDown;
+            } else {
+                /* otherwise, move the DIV from anywhere inside the DIV:*/
+                elmnt.onmousedown = dragMouseDown;
+            }
+            
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // get the mouse cursor position at startup:
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                // call a function whenever the cursor moves:
+                document.onmousemove = elementDrag;
+            }
+            
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // calculate the new cursor position:
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                // set the element's new position:
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+            
+            function closeDragElement() {
+                /* stop moving when mouse button is released:*/
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
+        }
+    </script>
+</body></html>
