@@ -638,13 +638,6 @@ header .map_top_ul li a.not_pointer:hover {
     color: #1e3555;
 }
 
-.tracking {
-    -webkit-transform: skew(-0.05deg);
-	-moz-transform: skew(-0.05deg);
-	-ms-transform: skew(-0.05deg);
-	transform: skew(-0.05deg);
-}
-
 .tracking>.left {
     width: 88px;
     background: #1d2b46;
@@ -658,6 +651,10 @@ header .map_top_ul li a.not_pointer:hover {
     padding: 20px 0;
     font-size: 14px;
     font-weight: 500;
+    -webkit-transform: skew(-0.05deg);
+	-moz-transform: skew(-0.05deg);
+	-ms-transform: skew(-0.05deg);
+	transform: skew(-0.05deg);
 }
 
 .tracking>.left .left_ul li a.on {
@@ -734,6 +731,10 @@ header .map_top_ul li a.not_pointer:hover {
     padding: 5px 10px;
     background: rgba(255,255,255,0.9);
     border-radius: 0;
+    -webkit-transform: skew(-0.05deg);
+	-moz-transform: skew(-0.05deg);
+	-ms-transform: skew(-0.05deg);
+	transform: skew(-0.05deg);
 }
 
 .tracking .top_left .top_icons li a.ico01 {
@@ -1031,6 +1032,10 @@ header .map_top_ul li a.not_pointer:hover {
     padding: 10px;
     background: rgba(255,255,255,0.9);
     border-radius: 0;
+    -webkit-transform: skew(-0.05deg);
+	-moz-transform: skew(-0.05deg);
+	-ms-transform: skew(-0.05deg);
+	transform: skew(-0.05deg);
 }
 
 .tracking .bottom label {
@@ -1079,6 +1084,10 @@ header .map_top_ul li a.not_pointer:hover {
     background: url('../images/tab_bg.png') no-repeat left top;
     background-size: cover;
     border-radius: 0;
+    -webkit-transform: skew(-0.05deg);
+	-moz-transform: skew(-0.05deg);
+	-ms-transform: skew(-0.05deg);
+	transform: skew(-0.05deg);
 }
 
 .tracking .panel .panel_wrap .panel_tab ul {
@@ -1434,6 +1443,10 @@ header .map_top_ul li a.not_pointer:hover {
     top: 415px;
     left: 458px;
     box-shadow: 0 0 15px 0px rgba(0,0,0,0.1);
+    -webkit-transform: skew(-0.05deg);
+	-moz-transform: skew(-0.05deg);
+	-ms-transform: skew(-0.05deg);
+	transform: skew(-0.05deg);
 }
 
 .tracking .sub_panel .panel_wrap {
@@ -1566,6 +1579,10 @@ header .map_top_ul li a.not_pointer:hover {
     top: 110px;
     left: 458px;
     box-shadow: 0 0 15px 0px rgba(0,0,0,0.1);
+    -webkit-transform: skew(-0.05deg);
+	-moz-transform: skew(-0.05deg);
+	-ms-transform: skew(-0.05deg);
+	transform: skew(-0.05deg);
 }
 
 .tracking .layer_panel .panel_wrap .panel_tab ul {
